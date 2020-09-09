@@ -1,0 +1,25 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Javascript Simple Weather App Dealing With APIs",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --progress --mode=production",
+    "watch": "webpack --progress --watch",
+    "server": "webpack-dev-server --content-base dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rsnazario/weather-app-js.git"
+  },
+  "author": "rsnazario",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rsnazario/weather-app-js/issues"
+  },
+  "homepage": "https://github.com/rsnazario/weather-app-js#readme",
+  "devDependencies": {
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
