@@ -7,6 +7,10 @@ body {
   background: linear-gradient(to left top,lightblue, darkblue) fixed;
 }
 
+main {
+  margin: auto;
+  color: white;
+}
 
 nav {
   height: 45px;
@@ -38,6 +42,10 @@ footer > div > h2 {
   width: 100%;
 }
 
+.w-80 {
+  width: 80%;
+}
+
 .text-center {
   text-align: center;
 }
@@ -54,4 +62,39 @@ footer > div > h2 {
   font-size: 2rem;
   letter-spacing: 4px;
   padding-top: 5px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.half-content {
+  grid-column: span 5;
+}
+
+.border-content {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.search-city {
+  margin-left: 20%;
+  position: relative;
+  height: 35px;
+  width: 50%;
+  border-radius: 15px;
+  border: black;
+}
+
+.button-search {
+  height: 35px;
+  width: 80px;
+  border-radius: 15px;
+}
+
+.d-flex-btw {
+  display: flex;
+  justify-content: space-between;
 }
