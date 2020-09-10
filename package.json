@@ -4,8 +4,8 @@
   "description": "Javascript Simple Weather App Dealing With APIs",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --progress --mode=production",
-    "watch": "webpack --progress --watch",
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --watch",
     "server": "webpack-dev-server --content-base dist"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/rsnazario/weather-app-js#readme",
   "devDependencies": {
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   }
