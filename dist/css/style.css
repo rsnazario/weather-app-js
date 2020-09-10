@@ -1,0 +1,57 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: linear-gradient(to left top,lightblue, darkblue) fixed;
+}
+
+
+nav {
+  height: 45px;
+  background-color: black;
+  color: white;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background: black;
+  height: 45px;
+}
+
+footer > div > h2 {
+  padding: 7px 0;
+  letter-spacing: 3px;
+}
+
+.flex-around {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  color: white;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.vertical-center {
+  margin-top: 10px;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.font-title {
+  font-size: 2rem;
+  letter-spacing: 4px;
+  padding-top: 5px;
+}
