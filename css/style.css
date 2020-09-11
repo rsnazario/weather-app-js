@@ -132,4 +132,6 @@ table > tr > td {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
+  align-items: space-between;
+  text-align: center;
 }
