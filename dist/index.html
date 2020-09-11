@@ -19,19 +19,19 @@
     <br><br><br><br></br>
     <div class="row">
       <div class="half-content border-content">
-        <div class="search-div">
+        <div class="d-flex">
           <input id="search-field"type="text" class="search-city">
           <button id="submit-search" class="button-search"> Search </button>
         </div>
         
         <br><hr><br>
         <center>
-        <div id="info" class="intel">
+        <div id="info">
           <div id="city-name">
-            <h1 class="mb-3">BIRIGUI</h1>
+            <h1 class="mb-3"></h1>
           </div>
           <div id="city-description">
-            <h1>ENSOLARADO</h1>
+            <h1></h1>
           </div>
         </div>
 
@@ -40,21 +40,21 @@
         <div class="centered">
           <div class="w-50">
             <h2 class="mb-3">TEMPERATURE NOW</h2>
-            <h1 style="text-align: center;" class="mb-3">35 C</h1>
+            <h1 id="current-temp" style="text-align: center;" class="mb-3"></h1>
           </div>
           <div id="etc-info" class="w-50 mb-3">
             <table class="w-100">
               <tr class="mb-3">
                 <td>Feels Like: </td>
-                <td> 36 C</td>
+                <td id="current-feels" class="text-right"></td>
               </tr>
               <tr>
                 <td>Wind:</td>
-                <td>6 mph NE</td>
+                <td id="current-wind" class="text-right"></td>
               </tr>
               <tr>
                 <td>Min~Max:</td>
-                <td>33 ~ 36</td>
+                <td id="current-range-temp" class="text-right"></td>
               </tr>
             </table>
           </div>
