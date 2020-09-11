@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --watch",
-    "server": "webpack-dev-server --content-base dist"
+    "server": "webpack-dev-server --content-base dist",
+    "linter": "eslint .",
+    "stylelint": "stylelint '**/*.{css,scss}'"
   },
   "repository": {
     "type": "git",
