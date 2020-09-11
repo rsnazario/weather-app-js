@@ -47,11 +47,15 @@ footer > div > h2 {
 }
 
 .w-50 {
-  width: 50%;
+  width: 60%;
 }
 
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: end;
 }
 
 .vertical-center {
@@ -74,6 +78,7 @@ footer > div > h2 {
 }
 
 .half-content {
+  height: 450px;
   grid-column: span 5;
 }
 
@@ -84,7 +89,7 @@ footer > div > h2 {
 }
 
 .search-city {
-  margin-left: 20%;
+  margin-left: 15%;
   margin-right: 10px;
   padding: 0 10px 0 10px;
   position: relative;
@@ -103,10 +108,6 @@ footer > div > h2 {
 table {
   font-size: 1.3rem;
   border-spacing: 15px;
-}
-
-table > tr {
-  
 }
 
 table > tr > td {
