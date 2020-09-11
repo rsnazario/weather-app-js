@@ -53,27 +53,50 @@ var UIController = (function () {
 
   // ------------------------------------------ // 
 
-  
+
 
   function setForecast (data) {
-
+    console.log('forecast start');
+    console.log(data);
+    // const results = data.list.filter(x => {
+    //   let test = new Date(x.dt_txt);
+    //   if (test.getHours() === 12) {
+    //     console.log(test);
+    //     return test;
+    //   }
+      // console.log(x.dt_txt);
+    // });
+    // console.log(results);
   };
 
   return { setCurrentInformation, setForecast }
 })();
 
 var mainController = (function(searcher, displayer) {
+
+  function forecastFilter(data) {
+    const today = new Date(Date.now()).getDate();
+    const result = data.list.filter(x => {
+      let eachOne = new Date(x.dt_txt);
+      if (eachOne.getHours() === 12 && eachOne.getDate() > today) {
+        return eachOne;
+      }
+    });
+    return result;
+  };
+
   async function triggerSearch() {
     const bla = document.querySelector('input');
     if (bla.value !== '') {
       let val = bla.value;
       bla.value = '';
+
       let weatherNow = await searcher.searchCurrentWeather(val);
-      let forecast = await searcher.searchForecastWeather(val);
-      console.log(weatherNow);
-      console.log(forecast);
       displayer.setCurrentInformation(weatherNow);
-      displayer.setForecast(forecast);
+
+      let forecast = await searcher.searchForecastWeather(val);
+      let filteredForecast = forecastFilter(forecast);
+      displayer.setForecast(filteredForecast);
     }
     else {
       console.log('empty');
