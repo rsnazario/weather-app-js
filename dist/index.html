@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="css/style.css">
-  <script src="main.js"></script>
 </head>
 <body>
   <nav class="w-100 text-center text-bold font-title">
@@ -21,8 +20,8 @@
     <div class="row">
       <div class="half-content border-content">
         <div class="search-div">
-          <input type="text" class="search-city">
-          <button class="button-search"> Search </button>
+          <input id="search-field"type="text" class="search-city">
+          <button id="submit-search" class="button-search"> Search </button>
         </div>
         
         <br><hr><br>
@@ -65,7 +64,7 @@
 
       <div></div>
       <div></div>
-      <div class="half-content border-content">
+      <div class="half-content border-content d-flex-vertical">
         
         <div class="info-item d-flex-evenly">
           <h2>Week Day</h2>
@@ -125,5 +124,6 @@
   </footer>
 
   <script src="https://kit.fontawesome.com/859eff7750.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>

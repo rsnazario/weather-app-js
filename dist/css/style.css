@@ -85,6 +85,8 @@ footer > div > h2 {
 
 .search-city {
   margin-left: 20%;
+  margin-right: 10px;
+  padding: 0 10px 0 10px;
   position: relative;
   height: 35px;
   width: 50%;
@@ -122,4 +124,11 @@ table > tr > td {
 .d-flex-evenly {
   display: flex;
   justify-content: space-evenly;
+}
+
+.d-flex-vertical {
+  padding: 15px 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
 }
