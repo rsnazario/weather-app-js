@@ -1,6 +1,18 @@
 const key = '7dd12ed8bc61861e26671e1bee6f88de';
 
 var searchEngine = (function() {
+  async function searchCurrentGeoWeather(latitude, longitude) {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${key}`);
+    const result = await response.json();
+    return result;
+  };
+
+  async function searchGeoForecast(latitude, longitude) {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${key}`);
+    const result = await response.json();
+    return result;
+  };
+  
   async function searchCurrentWeather(city) {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`)
     const result = await response.json();
@@ -13,7 +25,7 @@ var searchEngine = (function() {
     return result;
   };
 
-  return { searchCurrentWeather, searchForecastWeather };
+  return { searchCurrentGeoWeather, searchGeoForecast, searchCurrentWeather, searchForecastWeather };
 })();
 
 var UIController = (function () {
@@ -57,8 +69,6 @@ var UIController = (function () {
     const weekDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     for(var i = 0; i <= 3; i++) {
       var weekDayIndex = new Date(data[i].dt_txt).getDay();
-      // console.log(test.getDay());
-      // console.log(weekDay[weekDayIndex]);
       document.getElementById(`weekday-${i}`).innerHTML = weekDay[weekDayIndex];
       document.getElementById(`tmax-${i}`).innerHTML = Math.round(data[i].main.temp) + '&nbsp &deg;C';
       document.getElementById(`expect-${i}`).innerHTML = data[i].weather[0].description;
@@ -69,6 +79,23 @@ var UIController = (function () {
 })();
 
 var mainController = (function(searcher, displayer) {
+
+  async function setLocalWeather(latitude, longitude) {
+    let weatherNow = await searcher.searchCurrentGeoWeather(latitude, longitude);
+    displayer.setCurrentInformation(weatherNow);
+
+    let forecast = await searcher.searchGeoForecast(latitude, longitude);
+    let filteredForecast = forecastFilter(forecast);
+    displayer.setForecast(filteredForecast);
+  };
+
+  function getLocation() {
+    navigator.geolocation.getCurrentPosition(position => {
+      const lat = position.coords.latitude;
+      const long = position.coords.longitude;
+      setLocalWeather(lat, long);
+    });
+  };
 
   function forecastFilter(data) {
     const today = new Date(Date.now()).getDate();
@@ -94,9 +121,6 @@ var mainController = (function(searcher, displayer) {
       let filteredForecast = forecastFilter(forecast);
       displayer.setForecast(filteredForecast);
     }
-    else {
-      console.log('empty');
-    }
   }
 
   var setupEventListeners = function() {
@@ -110,8 +134,8 @@ var mainController = (function(searcher, displayer) {
 
   return {
     init: function() {
-      console.log('Application has Started');
       setupEventListeners();
+      getLocation();
     }
   }
 })(searchEngine, UIController);
