@@ -39,7 +39,7 @@ var UIController = (function () {
   };
 
   function setMaxMinTemps (minTemp, maxTemp) {
-    document.getElementById('current-range-temp').innerHTML = Math.round(minTemp) + ' ~ ' + Math.round(maxTemp) + '&nbsp &deg;C';
+    document.getElementById('current-range-temp').innerHTML = Math.floor(minTemp) + ' ~ ' + Math.ceil(maxTemp) + '&nbsp &deg;C';
   };
 
   function setCurrentInformation (data) {
@@ -53,20 +53,16 @@ var UIController = (function () {
 
   // ------------------------------------------ // 
 
-
-
   function setForecast (data) {
-    console.log('forecast start');
-    console.log(data);
-    // const results = data.list.filter(x => {
-    //   let test = new Date(x.dt_txt);
-    //   if (test.getHours() === 12) {
-    //     console.log(test);
-    //     return test;
-    //   }
-      // console.log(x.dt_txt);
-    // });
-    // console.log(results);
+    const weekDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    for(var i = 0; i <= 3; i++) {
+      var weekDayIndex = new Date(data[i].dt_txt).getDay();
+      // console.log(test.getDay());
+      // console.log(weekDay[weekDayIndex]);
+      document.getElementById(`weekday-${i}`).innerHTML = weekDay[weekDayIndex];
+      document.getElementById(`tmax-${i}`).innerHTML = Math.round(data[i].main.temp) + '&nbsp &deg;C';
+      document.getElementById(`expect-${i}`).innerHTML = data[i].weather[0].description;
+    }
   };
 
   return { setCurrentInformation, setForecast }
