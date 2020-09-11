@@ -120,6 +120,8 @@ var mainController = (function(searcher, displayer) {
       let forecast = await searcher.searchForecastWeather(val);
       let filteredForecast = forecastFilter(forecast);
       displayer.setForecast(filteredForecast);
+    } else {
+      getLocation();
     }
   }
 
