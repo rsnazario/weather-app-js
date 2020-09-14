@@ -16,7 +16,7 @@ const UIController = (() => {
   }
 
   function setCurrentWind(wind) {
-    document.getElementById('current-wind').innerHTML = Math.round(3.6 * wind);
+    document.getElementById('current-wind').innerHTML = Math.round(wind);
   }
 
   function setMaxMinTemps(minTemp, maxTemp) {
@@ -35,6 +35,13 @@ const UIController = (() => {
 
   // ------------------------------------------ //
 
+  function updateForecast(data) {
+    for (let i = 0; i <= 3; i += 1) {
+      document.getElementById(`tmax-${i}`).innerHTML = Math.round(data[i].main.temp);
+      document.getElementById(`expect-${i}`).innerHTML = data[i].weather[0].description;
+    }
+  }
+
   function setForecast(data) {
     const weekDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     for (let i = 0; i <= 3; i += 1) {
@@ -45,7 +52,7 @@ const UIController = (() => {
     }
   }
 
-  return { setCurrentInformation, setForecast };
+  return { setCurrentInformation, setForecast, updateForecast };
 })();
 
 export default UIController;
