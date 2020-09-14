@@ -1,7 +1,7 @@
 import searchEngine from './searchEngine';
 import UIController from './UIController';
 
-const mainController = (function (searcher, displayer) {
+const mainController = ((searcher, displayer) => {
   function forecastFilter(data) {
     const today = new Date(Date.now()).getDate();
     // eslint-disable-next-line consistent-return
@@ -61,6 +61,6 @@ const mainController = (function (searcher, displayer) {
       getLocation();
     },
   };
-}(searchEngine, UIController));
+})(searchEngine, UIController);
 
 export default mainController;

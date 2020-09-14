@@ -1,4 +1,4 @@
-const UIController = (function () {
+const UIController = (() => {
   function setCityName(name) {
     document.querySelector('#city-name > h1').innerHTML = name.toUpperCase();
   }
@@ -45,6 +45,6 @@ const UIController = (function () {
   }
 
   return { setCurrentInformation, setForecast };
-}());
+})();
 
 export default UIController;

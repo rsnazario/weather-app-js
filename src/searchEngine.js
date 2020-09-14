@@ -1,6 +1,6 @@
 const key = '7dd12ed8bc61861e26671e1bee6f88de';
 
-const searchEngine = (function () {
+const searchEngine = (() => {
   async function searchCurrentGeoWeather(latitude, longitude) {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${key}`);
     const result = await response.json();
@@ -28,6 +28,6 @@ const searchEngine = (function () {
   return {
     searchCurrentGeoWeather, searchGeoForecast, searchCurrentWeather, searchForecastWeather,
   };
-}());
+})();
 
 export default searchEngine;
