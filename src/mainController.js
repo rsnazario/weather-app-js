@@ -2,7 +2,7 @@ import searchEngine from './searchEngine';
 import UIController from './UIController';
 
 const mainController = ((searcher, displayer) => {
-  function forecastFilter(data) {
+  const forecastFilter = (data) => {
     const today = new Date(Date.now()).getDate();
     // eslint-disable-next-line consistent-return
     const result = data.list.filter(x => { // eslint-disable-line array-callback-return
@@ -21,7 +21,7 @@ const mainController = ((searcher, displayer) => {
     displayer.setForecast(filteredForecast);
   }
 
-  function getLocation() {
+  const getLocation = () => {
     navigator.geolocation.getCurrentPosition(position => {
       const lat = position.coords.latitude;
       const long = position.coords.longitude;
@@ -54,7 +54,7 @@ const mainController = ((searcher, displayer) => {
     }
   }
 
-  function convertToCelsius() {
+  const convertToCelsius = () => {
     if (!document.getElementById('celsius-scale').classList.contains('active')) {
       document.getElementById('celsius-scale').classList.toggle('active');
       document.getElementById('fahrenheit-scale').classList.toggle('active');
@@ -97,7 +97,7 @@ const mainController = ((searcher, displayer) => {
     }
   }
 
-  function convertToFahrenheit() {
+  const convertToFahrenheit = () => {
     if (!document.getElementById('fahrenheit-scale').classList.contains('active')) {
       document.getElementById('celsius-scale').classList.toggle('active');
       document.getElementById('fahrenheit-scale').classList.toggle('active');
@@ -140,7 +140,7 @@ const mainController = ((searcher, displayer) => {
     }
   }
 
-  function setupEventListeners() {
+  const setupEventListeners = () => {
     document.getElementById('celsius-scale').addEventListener('click', convertToCelsius);
     document.getElementById('fahrenheit-scale').addEventListener('click', convertToFahrenheit);
     document.querySelector('button').addEventListener('click', triggerSearch);
