@@ -40,7 +40,7 @@ const UIController = (() => {
     for (let i = 0; i <= 3; i += 1) {
       const weekDayIndex = new Date(data[i].dt_txt).getDay();
       document.getElementById(`weekday-${i}`).innerHTML = weekDay[weekDayIndex];
-      document.getElementById(`tmax-${i}`).innerHTML = `${Math.round(data[i].main.temp)}&nbsp &deg;C`;
+      document.getElementById(`tmax-${i}`).innerHTML = Math.round(data[i].main.temp);
       document.getElementById(`expect-${i}`).innerHTML = data[i].weather[0].description;
     }
   }
