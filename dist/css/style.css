@@ -30,6 +30,11 @@ footer > div > h2 {
   letter-spacing: 3px;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 .flex-around {
   margin: auto;
   width: 80%;
@@ -105,6 +110,41 @@ footer > div > h2 {
   border-radius: 15px;
 }
 
+.select-scale {
+  height: 35px;
+}
+
+#celsius-scale, #fahrenheit-scale {
+  border: black 2px solid;  
+  width: 40px;
+}
+
+#celsius-scale {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+#fahrenheit-scale {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.active {
+  background-color: aqua;
+  color: blue;
+  font-weight: bold;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.text-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 table {
   font-size: 1.3rem;
   border-spacing: 15px;
@@ -116,6 +156,10 @@ table > tr > td {
 
 .mb-3 {
   margin-bottom: 18px;
+}
+
+.ml-3 {
+  margin-left: 15px;
 }
 
 .d-flex {
