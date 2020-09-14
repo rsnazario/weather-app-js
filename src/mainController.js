@@ -30,10 +30,18 @@ const mainController = ((searcher, displayer) => {
   }
 
   async function triggerSearch() {
-    const bla = document.querySelector('input');
-    if (bla.value !== '') {
-      const val = bla.value;
-      bla.value = '';
+    const input = document.querySelector('input');
+    if (input.value !== '') {
+      if (document.getElementById('fahrenheit-scale').classList.contains('active')) {
+        document.getElementById('celsius-scale').classList.toggle('active');
+        document.getElementById('fahrenheit-scale').classList.toggle('active');
+        var changeScale = document.querySelectorAll('.current-scale');
+        for (let i = 0; i < changeScale.length; i += 1) {
+          changeScale[i].innerHTML = 'C';
+        }
+      }
+      const val = input.value;
+      input.value = '';
 
       const weatherNow = await searcher.searchCurrentWeather(val);
       displayer.setCurrentInformation(weatherNow);
@@ -47,87 +55,90 @@ const mainController = ((searcher, displayer) => {
   }
 
   function convertToCelsius() {
-    document.getElementById('celsius-scale').classList.toggle('active');
-    document.getElementById('fahrenheit-scale').classList.toggle('active');
-    
-    var changeScale = document.querySelectorAll('.current-scale');
-    for (let i = 0; i < changeScale.length; i += 1) {
-      changeScale[i].innerHTML = 'C';
-      console.log(changeScale[i]);
-    }
+    if (!document.getElementById('celsius-scale').classList.contains('active')) {
 
-    var weatherNow = {
-      name: document.querySelector('#city-name > h1').innerHTML,
-      weather: [{
-        description: document.querySelector('#city-description > h1').innerHTML
-      }],
-      wind: {
-        speed: document.getElementById('current-wind').innerHTML
-      },
-      main: {
-        temp: (parseFloat(document.getElementById('current-temp').innerHTML) - 32) * 5/9,
-        temp_max: (parseFloat(document.getElementById('max-temp').innerHTML) - 32) * 5/9,
-        temp_min: (parseFloat(document.getElementById('min-temp').innerHTML) - 32) * 5/9,
-        feels_like: document.getElementById('current-feels').innerHTML
+      document.getElementById('celsius-scale').classList.toggle('active');
+      document.getElementById('fahrenheit-scale').classList.toggle('active');
+      
+      var changeScale = document.querySelectorAll('.current-scale');
+      for (let i = 0; i < changeScale.length; i += 1) {
+        changeScale[i].innerHTML = 'C';
       }
-    }
-    displayer.setCurrentInformation(weatherNow);
 
-    var forecast = [];
-    for (let i = 0; i <= 3; i += 1) {
-      let aux = {
+      var weatherNow = {
+        name: document.querySelector('#city-name > h1').innerHTML,
         weather: [{
-          description: document.getElementById(`expect-${i}`).innerHTML
+          description: document.querySelector('#city-description > h1').innerHTML
         }],
-        main: {
-          temp: (parseFloat(document.getElementById(`tmax-${i}`).innerHTML) - 32) * 5/9,
+        wind: {
+          speed: document.getElementById('current-wind').innerHTML
         },
+        main: {
+          temp: (parseFloat(document.getElementById('current-temp').innerHTML) - 32) * 5/9,
+          temp_max: (parseFloat(document.getElementById('max-temp').innerHTML) - 32) * 5/9,
+          temp_min: (parseFloat(document.getElementById('min-temp').innerHTML) - 32) * 5/9,
+          feels_like: document.getElementById('current-feels').innerHTML
+        }
       }
-      forecast.push(aux);
+      displayer.setCurrentInformation(weatherNow);
+
+      var forecast = [];
+      for (let i = 0; i <= 3; i += 1) {
+        let aux = {
+          weather: [{
+            description: document.getElementById(`expect-${i}`).innerHTML
+          }],
+          main: {
+            temp: (parseFloat(document.getElementById(`tmax-${i}`).innerHTML) - 32) * 5/9,
+          },
+        }
+        forecast.push(aux);
+      }
+      displayer.updateForecast(forecast);
     }
-    displayer.updateForecast(forecast);
   }
 
   function convertToFahrenheit() {
-    document.getElementById('celsius-scale').classList.toggle('active');
-    document.getElementById('fahrenheit-scale').classList.toggle('active');
-    
-    var changeScale = document.querySelectorAll('.current-scale');
-    for (let i = 0; i < changeScale.length; i += 1) {
-      changeScale[i].innerHTML = 'F';
-      console.log(changeScale[i]);
-    }
-
-    var weatherNow = {
-      name: document.querySelector('#city-name > h1').innerHTML,
-      weather: [{
-        description: document.querySelector('#city-description > h1').innerHTML
-      }],
-      wind: {
-        speed: document.getElementById('current-wind').innerHTML
-      },
-      main: {
-        temp: parseFloat(document.getElementById('current-temp').innerHTML) * 9/5 + 32,
-        temp_max: parseFloat(document.getElementById('max-temp').innerHTML) * 9/5 + 32,
-        temp_min: parseFloat(document.getElementById('min-temp').innerHTML) * 9/5 + 32,
-        feels_like: document.getElementById('current-feels').innerHTML
+    if (!document.getElementById('fahrenheit-scale').classList.contains('active')) {
+      document.getElementById('celsius-scale').classList.toggle('active');
+      document.getElementById('fahrenheit-scale').classList.toggle('active');
+      
+      var changeScale = document.querySelectorAll('.current-scale');
+      for (let i = 0; i < changeScale.length; i += 1) {
+        changeScale[i].innerHTML = 'F';
       }
-    }
-    displayer.setCurrentInformation(weatherNow);
 
-    var forecast = [];
-    for (let i = 0; i <= 3; i += 1) {
-      let aux = {
+      var weatherNow = {
+        name: document.querySelector('#city-name > h1').innerHTML,
         weather: [{
-          description: document.getElementById(`expect-${i}`).innerHTML
+          description: document.querySelector('#city-description > h1').innerHTML
         }],
-        main: {
-          temp: parseFloat(document.getElementById(`tmax-${i}`).innerHTML) * 9/5 + 32,
+        wind: {
+          speed: document.getElementById('current-wind').innerHTML
         },
+        main: {
+          temp: parseFloat(document.getElementById('current-temp').innerHTML) * 9/5 + 32,
+          temp_max: parseFloat(document.getElementById('max-temp').innerHTML) * 9/5 + 32,
+          temp_min: parseFloat(document.getElementById('min-temp').innerHTML) * 9/5 + 32,
+          feels_like: document.getElementById('current-feels').innerHTML
+        }
       }
-      forecast.push(aux);
+      displayer.setCurrentInformation(weatherNow);
+
+      var forecast = [];
+      for (let i = 0; i <= 3; i += 1) {
+        let aux = {
+          weather: [{
+            description: document.getElementById(`expect-${i}`).innerHTML
+          }],
+          main: {
+            temp: parseFloat(document.getElementById(`tmax-${i}`).innerHTML) * 9/5 + 32,
+          },
+        }
+        forecast.push(aux);
+      }
+      displayer.updateForecast(forecast);
     }
-    displayer.updateForecast(forecast);
   }
 
   function setupEventListeners() {

@@ -8,7 +8,7 @@ const UIController = (() => {
   }
 
   function setCurrentTemp(temp) {
-    document.getElementById('current-temp').textContent = temp;
+    document.getElementById('current-temp').textContent = temp.toFixed(2);
   }
 
   function setCurrentFeels(temp) {
