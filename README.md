@@ -4,7 +4,7 @@ Javascript Weather App Dealing with API's and Async / Await Functionalities.
 
 ## Screenshots
 
-![](docs/weather-app.png)
+![](docs/weather-screenshot.png)
 
 ## Online Version
  [Live Demo ](https://rsnazario.github.io/weather-app-js/)
@@ -22,8 +22,9 @@ Javascript Weather App Dealing with API's and Async / Await Functionalities.
 
 <ul>
   <p>Any User Can:</p>
-  <li>Allow Browser To Acces Location</li>
+  <li>Allow Browser To Access Location</li>
   <li>Search Any City for its weather information</li>
+  <li>Choose between Celsius or Fahrenheit Scales</li>
 </ul>
 
 ## Built With
