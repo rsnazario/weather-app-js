@@ -46,7 +46,35 @@ const mainController = ((searcher, displayer) => {
     }
   }
 
+  function convertToCelsius() {
+    document.getElementById('celsius-scale').classList.toggle('active');
+    document.getElementById('fahrenheit-scale').classList.toggle('active');
+  }
+
+  function convertToFahrenheit() {
+    document.getElementById('celsius-scale').classList.toggle('active');
+    document.getElementById('fahrenheit-scale').classList.toggle('active');
+    var data = {
+      name: document.querySelector('#city-name > h1').innerHTML,
+      weather: [{
+        description: document.querySelector('#city-description > h1').innerHTML
+      }],
+      wind: {
+        speed: document.getElementById('current-wind').innerHTML
+      },
+      main: {
+        temp: parseFloat(document.getElementById('current-temp').innerHTML),
+        temp_max: 33,
+        temp_min: 31,
+        feels_like: document.getElementById('current-feels').innerHTML
+      }
+    }
+    displayer.setCurrentInformation(data);
+  }
+
   function setupEventListeners() {
+    document.getElementById('celsius-scale').addEventListener('click', convertToCelsius);
+    document.getElementById('fahrenheit-scale').addEventListener('click', convertToFahrenheit);
     document.querySelector('button').addEventListener('click', triggerSearch);
     document.addEventListener('keypress', (event) => {
       if (event.keyCode === 13) {

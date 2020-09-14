@@ -8,19 +8,20 @@ const UIController = (() => {
   }
 
   function setCurrentTemp(temp) {
-    document.getElementById('current-temp').innerHTML = `${temp}&nbsp &deg;C`;
+    document.getElementById('current-temp').textContent = temp;
   }
 
   function setCurrentFeels(temp) {
-    document.getElementById('current-feels').innerHTML = `${Math.round(temp)}&nbsp &deg;C`;
+    document.getElementById('current-feels').innerHTML = Math.round(temp);
   }
 
   function setCurrentWind(wind) {
-    document.getElementById('current-wind').innerHTML = `${Math.round(3.6 * wind)}&nbsp km/h`;
+    document.getElementById('current-wind').innerHTML = Math.round(3.6 * wind);
   }
 
   function setMaxMinTemps(minTemp, maxTemp) {
-    document.getElementById('current-range-temp').innerHTML = `${Math.floor(minTemp)} ~ ${Math.ceil(maxTemp)}&nbsp &deg;C`;
+    document.getElementById('min-temp').innerHTML = Math.floor(minTemp);
+    document.getElementById('max-temp').innerHTML = Math.ceil(maxTemp);
   }
 
   function setCurrentInformation(data) {
