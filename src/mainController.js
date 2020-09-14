@@ -10,7 +10,7 @@ const mainController = ((searcher, displayer) => {
       if (eachOne.getHours() === 12 && eachOne.getDate() > today) return eachOne;
     });
     return result;
-  }
+  };
 
   async function setLocalWeather(latitude, longitude) {
     const weatherNow = await searcher.searchCurrentGeoWeather(latitude, longitude);
@@ -27,7 +27,7 @@ const mainController = ((searcher, displayer) => {
       const long = position.coords.longitude;
       setLocalWeather(lat, long);
     });
-  }
+  };
 
   async function triggerSearch() {
     const input = document.querySelector('input');
@@ -95,7 +95,7 @@ const mainController = ((searcher, displayer) => {
       }
       displayer.updateForecast(forecast);
     }
-  }
+  };
 
   const convertToFahrenheit = () => {
     if (!document.getElementById('fahrenheit-scale').classList.contains('active')) {
@@ -138,7 +138,7 @@ const mainController = ((searcher, displayer) => {
       }
       displayer.updateForecast(forecast);
     }
-  }
+  };
 
   const setupEventListeners = () => {
     document.getElementById('celsius-scale').addEventListener('click', convertToCelsius);
@@ -149,7 +149,7 @@ const mainController = ((searcher, displayer) => {
         triggerSearch();
       }
     });
-  }
+  };
 
   return {
     init() {
