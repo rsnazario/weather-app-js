@@ -17,12 +17,11 @@ const searchEngine = (() => {
   const searchCurrentWeather = async (city) => {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`);
     const result = await response.json();
-    if (result.cod === "404") {
+    if (result.cod === '404') {
       alert('City Not Found');
-    } else {
-      result.wind.speed *= 3.6;
-      return result;
     }
+    result.wind.speed *= 3.6;
+    return result;
   };
 
   const searchForecastWeather = async (city) => {
