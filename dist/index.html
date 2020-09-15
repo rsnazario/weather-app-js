@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Weather App</title>
+  <link rel="icon" href="../docs/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="w-100 text-center text-bold font-title">
+    <span class="vertical-center">
+      SIMPLE WEATHER APP
+    </span>
+  </nav>
+  
+  <br><br><br>
+
+  <main class="w-80">
+    <br><br><br><br></br>
+    <div class="row">
+      <div class="half-content border-content">
+        <div class="d-flex">
+          <input id="search-field"type="text" class="search-city">
+          <button id="submit-search" class="button-search"> Search </button>
+          <div class="select-scale d-flex ml-3">
+            <div id="celsius-scale" class="active">
+              <p class="text-centered h-100" >&deg;C</p>
+            </div>
+            <div id="fahrenheit-scale">
+              <p class="text-centered h-100" >&deg;F</p>
+            </div>
+          </div>
+        </div>
+        
+        <br><hr><br>
+        <center>
+        <div id="info">
+          <div id="city-name">
+            <h1 class="mb-3"></h1>
+          </div>
+          <div id="city-description">
+            <h1></h1>
+          </div>
+        </div>
+
+        <br><hr><br>
+        
+        <div class="centered">
+          <div class="w-50">
+            <h2 class="mb-3">TEMPERATURE NOW</h2>
+            <h1 style="text-align: center;" class="mb-3"><span id="current-temp"></span>&nbsp;&deg;<span class="current-scale">C</span></h1>
+          </div>
+          <div id="etc-info" class="w-50 mb-3">
+            <table class="w-100">
+              <tr class="mb-3">
+                <td>Feels Like: </td>
+                <td class="text-right"><span id="current-feels"></span>&nbsp;&deg;<span class="current-scale">C</span></td>
+              </tr>
+              <tr>
+                <td>Wind:</td>
+                <td class="text-right"><span id="current-wind"></span>&nbsp;km/h</td>
+              </tr>
+              <tr>
+                <td>Min~Max:</td>
+                <td class="text-right"><span id="min-temp"></span> ~ <span id="max-temp"></span> &nbsp;&deg;<span class="current-scale">C</span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        </center>
+      </div>
+
+      <div></div>
+      <div></div>
+      <div class="half-content border-content d-flex-vertical">
+        
+        <div id="forecast-0" class="info-item d-flex-evenly">
+          <h2 id="weekday-0"></h2>
+          <div class="">
+            <h3>Temperature:</h3>
+            <h3><span id="tmax-0"></span>&deg;<span class="current-scale">C</span></h3>
+          </div>
+          <div>
+            <h3>Expected:</h3>
+            <h2 id="expect-0"></h2>
+          </div>
+        </div>
+
+        <div id="forecast-1" class="info-item d-flex-evenly">
+          <h2 id="weekday-1"></h2>
+          <div class="">
+            <h3>Temperature:</h3>
+            <h3><span id="tmax-1"></span>&deg;<span class="current-scale">C</span></h3>
+          </div>
+          <div>
+            <h3>Expected:</h3>
+            <h2 id="expect-1"></h2>
+          </div>
+        </div>
+
+        <div id="forecast-2" class="info-item d-flex-evenly">
+          <h2 id="weekday-2"></h2>
+          <div class="">
+            <h3>Temperature:</h3>
+            <h3><span id="tmax-2"></span>&deg;<span class="current-scale">C</span></h3>
+          </div>
+          <div>
+            <h3>Expected:</h3>
+            <h2 id="expect-2"></h2>
+          </div>
+        </div>
+
+        <div id="forecast-3" class="info-item d-flex-evenly">
+          <h2 id="weekday-3"></h2>
+          <div class="">
+            <h3>Temperature:</h3>
+            <h3><span id="tmax-3"></span>&deg;<span class="current-scale">C</span></h3>
+          </div>
+          <div>
+            <h3>Expected:</h3>
+            <h2 id="expect-3"></h2>
+          </div>
+        </div>
+    </div>
+  </main>
+
+  <footer class="w-100 ">
+    <div class="flex-around">
+      <h2>Developed by <a href="https://github.com/rsnazario" target="_blank"><span>rsnazario</span></a></h2>
+      <h2>Source Code <a href="https://github.com/rsnazario/weather-app-js" target="_blank">Here</a></h2>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/859eff7750.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
