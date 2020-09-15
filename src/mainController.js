@@ -12,7 +12,7 @@ const mainController = ((searcher, displayer) => {
     return result;
   };
 
-  async function setLocalWeather(latitude, longitude) {
+  const setLocalWeather = async (latitude, longitude) => {
     const weatherNow = await searcher.searchCurrentGeoWeather(latitude, longitude);
     displayer.setCurrentInformation(weatherNow);
 
@@ -29,7 +29,7 @@ const mainController = ((searcher, displayer) => {
     });
   };
 
-  async function triggerSearch() {
+  const triggerSearch = async () => {
     const input = document.querySelector('input');
     if (input.value !== '') {
       if (document.getElementById('fahrenheit-scale').classList.contains('active')) {
