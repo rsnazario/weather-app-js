@@ -1,0 +1,181 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: linear-gradient(to left top,lightblue, darkblue) fixed;
+}
+
+main {
+  margin: auto;
+  color: white;
+}
+
+nav {
+  height: 45px;
+  background-color: black;
+  color: white;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background: black;
+  height: 45px;
+}
+
+footer > div > h2 {
+  padding: 7px 0;
+  letter-spacing: 3px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.flex-around {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  color: white;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.w-50 {
+  width: 60%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: end;
+}
+
+.vertical-center {
+  margin-top: 10px;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.font-title {
+  font-size: 2rem;
+  letter-spacing: 4px;
+  padding-top: 5px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.half-content {
+  height: 450px;
+  grid-column: span 5;
+}
+
+.border-content {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.search-city {
+  margin-left: 15%;
+  margin-right: 10px;
+  padding: 0 10px 0 10px;
+  position: relative;
+  height: 35px;
+  width: 50%;
+  border-radius: 15px;
+  border: black;
+}
+
+.button-search {
+  height: 35px;
+  width: 80px;
+  border-radius: 15px;
+}
+
+.select-scale {
+  height: 35px;
+}
+
+#celsius-scale, #fahrenheit-scale {
+  border: black 2px solid;  
+  width: 40px;
+}
+
+#celsius-scale {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+#fahrenheit-scale {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.active {
+  background-color: aqua;
+  color: blue;
+  font-weight: bold;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.text-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  font-size: 1.3rem;
+  border-spacing: 15px;
+}
+
+table > tr > td {
+  background-color: red;
+}
+
+.mb-3 {
+  margin-bottom: 18px;
+}
+
+.ml-3 {
+  margin-left: 15px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-flex-evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.d-flex-vertical {
+  padding: 15px 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: space-between;
+  text-align: center;
+}
