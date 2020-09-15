@@ -19,7 +19,7 @@ const mainController = ((searcher, displayer) => {
     const forecast = await searcher.searchGeoForecast(latitude, longitude);
     const filteredForecast = forecastFilter(forecast);
     displayer.setForecast(filteredForecast);
-  }
+  };
 
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition(position => {
@@ -52,7 +52,7 @@ const mainController = ((searcher, displayer) => {
     } else {
       getLocation();
     }
-  }
+  };
 
   const convertToCelsius = () => {
     if (!document.getElementById('celsius-scale').classList.contains('active')) {
