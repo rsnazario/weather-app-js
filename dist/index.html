@@ -20,15 +20,17 @@
     <br><br><br><br></br>
     <div class="row">
       <div class="half-content border-content">
-        <div class="d-flex">
+        <div class="d-flex-search">
           <input id="search-field"type="text" class="search-city">
-          <button id="submit-search" class="button-search"> Search </button>
-          <div class="select-scale d-flex ml-3">
-            <div id="celsius-scale" class="active">
-              <p class="text-centered h-100" >&deg;C</p>
-            </div>
-            <div id="fahrenheit-scale">
-              <p class="text-centered h-100" >&deg;F</p>
+          <div class="d-flex">
+            <button id="submit-search" class="button-search"> Search </button>
+            <div class="select-scale d-flex ml-3">
+              <div id="celsius-scale" class="active">
+                <p class="text-centered h-100" >&deg;C</p>
+              </div>
+              <div id="fahrenheit-scale">
+                <p class="text-centered h-100" >&deg;F</p>
+              </div>
             </div>
           </div>
         </div>
@@ -73,7 +75,7 @@
 
       <div></div>
       <div></div>
-      <div class="half-content border-content d-flex-vertical">
+      <div class="half-content border-content d-flex-vertical margin-bottom">
         
         <div id="forecast-0" class="info-item d-flex-evenly">
           <h2 id="weekday-0"></h2>
@@ -86,7 +88,7 @@
             <h2 id="expect-0"></h2>
           </div>
         </div>
-
+        <hr>
         <div id="forecast-1" class="info-item d-flex-evenly">
           <h2 id="weekday-1"></h2>
           <div class="">
@@ -98,7 +100,7 @@
             <h2 id="expect-1"></h2>
           </div>
         </div>
-
+        <hr>
         <div id="forecast-2" class="info-item d-flex-evenly">
           <h2 id="weekday-2"></h2>
           <div class="">
@@ -110,7 +112,7 @@
             <h2 id="expect-2"></h2>
           </div>
         </div>
-
+        <hr>
         <div id="forecast-3" class="info-item d-flex-evenly">
           <h2 id="weekday-3"></h2>
           <div class="">
