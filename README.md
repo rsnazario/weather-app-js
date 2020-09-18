@@ -1,5 +1,5 @@
 # weather-app-js
-Javascript Weather App Dealing with API's and Async / Await Functionalities.
+Javascript Weather App Dealing with API from OpenWeatherMap and dealing with Async / Await methods that allows users to search for current weather and forecast of any city required.
 
 
 ## Screenshots
